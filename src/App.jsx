@@ -11,6 +11,7 @@ function App() {
   const [text,setText]=useState("")
   const [isjoined, setIsjoined]=useState(false)
   const [typing,setTyping]=useState('')
+  const [roomUsers, setRoomUsers] = useState([]);
 
   const typeTimeout =  useRef(null);
 
@@ -43,6 +44,10 @@ function App() {
         setTyping('')
     })
 
+    socket.on("room_users",(user)=>{
+      setRoomUsers(user)
+    })
+
 
     return () => {
       socket.off("connect");  // stop listening
@@ -67,7 +72,9 @@ function App() {
         time: new Date().toLocaleTimeString()
     };
 
-    socket.emit("send_message", sentmessage);
+    socket.emit("send_message", sentmessage,(response)=>{
+      console.log(response)
+    });
 
     socket.emit("stop_typing",{
     username,
@@ -126,7 +133,9 @@ function App() {
        </div>
 
       ))}
-
+      {roomUsers.map(each => (
+        <p key={each.socketId} >{each.username}</p>
+      ))}
       <input value={text}  onChange={ onTyping} placeholder={typing} />
       <button onClick={sendMessage}>
         Send
