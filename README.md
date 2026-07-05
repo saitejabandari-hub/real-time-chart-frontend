@@ -113,6 +113,24 @@ Add screenshots of your application here.
 - Additional User Features
 
 ---
+## structure 
+
+┌──────────┬─────────────────────┬──────────────────────────────┐
+│ Sidebar  │ Conversation List   │ Chat Window                  │
+│          │                     │                              │
+│ Profile  │ 👤 Naruto           │  Room/User Header            │
+│ Search   │ 👤 Kakashi          │──────────────────────────────│
+│ Rooms    │ 👤 Sakura           │                              │
+│ Users    │ # General           │        Messages              │
+│ Settings │ # Development       │                              │
+│          │                     │                              │
+│          │                     │                              │
+│          │                     │──────────────────────────────│
+│          │                     │ 😀 📎 Input          ➤ Send  │
+└──────────┴─────────────────────┴──────────────────────────────┘
+
+
+
 
 ## 👨‍💻 Author
 
