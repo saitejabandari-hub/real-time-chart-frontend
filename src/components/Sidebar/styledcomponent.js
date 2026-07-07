@@ -16,7 +16,6 @@ flex-direction:column;
 justify-content:space-between;
 align-items:center;
 margin-right:10px;
-position:relative;
 `
 export const Sidebaruppercard = styled.div`
 display:flex;
@@ -24,9 +23,10 @@ flex-direction:column;
 align-items:center;
 `
 
-export const SidebarProfileImageContainer = styled.div`
+export const SidebarProfileContainer = styled.div`
 margin-top:20px;
 margin-bottom:20px;
+position:relative;
 `
 export const SidebarProfile = styled.img`
 height:50px;
@@ -72,8 +72,25 @@ margin-top:20px;
 margin-bottom:20px;
 `
 export const Dropdown = styled.div`
+background: #16171D;
+width:120px;
+height:120px;
+border:1px solid #a5a2a2;
+border-radius:10px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content: center;
 position:absolute;
 left:70px;
-top:0;
+top:10px;
 z-index:100;
+gap:15px;
+
+`
+export const SidebarDropdownheading = styled.h2`
+color: #ffffff;
+font-family:"Roboto";
+font-weight:500;
+font-size:18px;
 `

@@ -1,9 +1,29 @@
-import { useState } from 'react'
-import {SidebarContainer,Sidebaruppercard,SidebarProfileImageContainer,SidebarProfile,ChatIcon,
-    SidebarIcons,SidebarLogOut,StarIcon,ContactIcon,NotificationIcon,SettingIcon,LogOutIcon,Dropdown} from './styledcomponent'
+import { useState,useRef,useEffect } from 'react'
+import {SidebarContainer,Sidebaruppercard,SidebarProfileContainer,SidebarProfile,ChatIcon,
+    SidebarIcons,SidebarLogOut,StarIcon,ContactIcon,NotificationIcon,SettingIcon,LogOutIcon,Dropdown,
+SidebarDropdownheading,} from './styledcomponent'
 
 const Sidebar=()=>{
     const [isProfileOpen,setIsProfileOpen]=useState(false)
+    const profileUseRef = useRef()
+
+    useEffect(()=>{
+
+        const handleOutsideCilck=(event)=>{
+
+            if(!profileUseRef.current.contain(event.target)){ // check the HTML contains in it 
+                setIsProfileOpen(false)
+            }
+
+        }
+
+         document.addEventListener("click",handleOutsideCilck) // when some click anywhere this  event call's
+
+         return () =>{
+            document.removeEventListener("click",handleOutsideCilck)
+         }
+
+    },[])
 
     const onAvatarClick = ()=>{
         setIsProfileOpen(prev => !prev)
@@ -13,15 +33,23 @@ const Sidebar=()=>{
     <SidebarContainer>
 
        <Sidebaruppercard>
-         <SidebarProfileImageContainer>
+         <SidebarProfileContainer ref={profileUseRef} >
             <SidebarProfile src="https://i.pravatar.cc/150?img=12" alt="profile" onClick={onAvatarClick}/>
-        </SidebarProfileImageContainer>
+             {isProfileOpen && <Dropdown>
+                <SidebarDropdownheading>
+                    Profile
+                </SidebarDropdownheading>
+                <SidebarDropdownheading>
+                    Setting
+                </SidebarDropdownheading>
+                <SidebarDropdownheading>
+                    Logout
+                </SidebarDropdownheading>
+                
+        </Dropdown>}
+        </SidebarProfileContainer>
 
-        {isProfileOpen ? <Dropdown>
-                <h1> Profile</h1>
-                <h1>Settings</h1>
-                <h1>Logout</h1>
-        </Dropdown> :''}
+       
 
         <SidebarIcons>
             <ChatIcon/>
