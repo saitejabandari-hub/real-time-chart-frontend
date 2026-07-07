@@ -1,7 +1,8 @@
 
 
-import socket from "./socket";
+import socket from "./services/socket";
 import {useState, useEffect,useRef } from "react";
+import Dashboard from './pages/Dashboard'
 
 
 function App() {
@@ -118,32 +119,35 @@ function App() {
   }
 
   return (
-    <div>
-      {isjoined ? <>{messages.map((msg,index)=>(
+    // <div>
+    //   {isjoined ? <>{messages.map((msg,index)=>(
         
-       <div key={index} style={{textAlign:msg.username === username? "right":"left" ,backgroundColor:
-    msg.username === username?"blue":"green",width:"150px" }} > 
+    //    <div key={index} style={{textAlign:msg.username === username? "right":"left" ,backgroundColor:
+    // msg.username === username?"blue":"green",width:"150px" }} > 
 
-        <div key={index}>
-         <h3>{msg.username}</h3>
-        <p>{msg.text}</p>
-        <small>{msg.time}</small>
-          </div>
+    //     <div key={index}>
+    //      <h3>{msg.username}</h3>
+    //     <p>{msg.text}</p>
+    //     <small>{msg.time}</small>
+    //       </div>
 
-       </div>
+    //    </div>
 
-      ))}
-      {roomUsers.map(each => (
-        <p key={each.socketId} >{each.username}</p>
-      ))}
-      <input value={text}  onChange={ onTyping} placeholder={typing} />
-      <button onClick={sendMessage}>
-        Send
-      </button></>:<> <input value={username} placeholder="Enter username"  onChange={(e)=>setUsername(e.target.value)}/>
-      <input value={room} placeholder="Enter room"  onChange={(e)=>setRoom(e.target.value)}/>  
-      <button onClick={onEntered}>
-        OK
-      </button> </>}
+    //   ))}
+    //   {roomUsers.map(each => (
+    //     <p key={each.socketId} >{each.username}</p>
+    //   ))}
+    //   <input value={text}  onChange={ onTyping} placeholder={typing} />
+    //   <button onClick={sendMessage}>
+    //     Send
+    //   </button></>:<> <input value={username} placeholder="Enter username"  onChange={(e)=>setUsername(e.target.value)}/>
+    //   <input value={room} placeholder="Enter room"  onChange={(e)=>setRoom(e.target.value)}/>  
+    //   <button onClick={onEntered}>
+    //     OK
+    //   </button> </>}
+    // </div>
+    <div>
+      <Dashboard/>
     </div>
   )
 }
