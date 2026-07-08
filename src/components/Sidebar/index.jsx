@@ -1,17 +1,20 @@
-import { useState,useRef,useEffect } from 'react'
+import { useState,useRef,useEffect,useContext } from 'react'
+import Profile from '../Profile'
+import ChatContext from '../../context/ChatContext'
 import {SidebarContainer,Sidebaruppercard,SidebarProfileContainer,SidebarProfile,ChatIcon,
-    SidebarIcons,SidebarLogOut,StarIcon,ContactIcon,NotificationIcon,SettingIcon,LogOutIcon,Dropdown,
-SidebarDropdownheading,} from './styledcomponent'
+    SidebarIcons,StarIcon,ContactIcon,NotificationIcon,Dropdown,
+SidebarDropdownbutton,} from './styledcomponent'
 
 const Sidebar=()=>{
     const [isProfileOpen,setIsProfileOpen]=useState(false)
+    const {onSelectProfile,onSelectConvesationList,onSelectSetting}=useContext(ChatContext)
     const profileUseRef = useRef()
 
     useEffect(()=>{
 
         const handleOutsideCilck=(event)=>{
 
-            if(!profileUseRef.current.contain(event.target)){ // check the HTML contains in it 
+            if(profileUseRef.current && !profileUseRef.current.contains(event.target)){ // check the HTML contains in it 
                 setIsProfileOpen(false)
             }
 
@@ -36,15 +39,15 @@ const Sidebar=()=>{
          <SidebarProfileContainer ref={profileUseRef} >
             <SidebarProfile src="https://i.pravatar.cc/150?img=12" alt="profile" onClick={onAvatarClick}/>
              {isProfileOpen && <Dropdown>
-                <SidebarDropdownheading>
+                <SidebarDropdownbutton type="button" onClick={onSelectProfile}>
                     Profile
-                </SidebarDropdownheading>
-                <SidebarDropdownheading>
+                </SidebarDropdownbutton >
+                <SidebarDropdownbutton type="button" onClick={onSelectSetting} >
                     Setting
-                </SidebarDropdownheading>
-                <SidebarDropdownheading>
+                </SidebarDropdownbutton>
+                <SidebarDropdownbutton type="button" >
                     Logout
-                </SidebarDropdownheading>
+                </SidebarDropdownbutton>
                 
         </Dropdown>}
         </SidebarProfileContainer>
@@ -52,19 +55,17 @@ const Sidebar=()=>{
        
 
         <SidebarIcons>
-            <ChatIcon/>
+            <ChatIcon onClick={onSelectConvesationList}/>
              <ContactIcon/>
              <StarIcon/>
               <NotificationIcon/>
-               <SettingIcon/>
+               
                
         </SidebarIcons>
        </Sidebaruppercard>
+       
 
-         <SidebarLogOut>
-           <LogOutIcon/>
-        </SidebarLogOut>
-
+         
     </SidebarContainer>
    )
 

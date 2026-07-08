@@ -68,27 +68,27 @@ const ConversationItem=()=>{
 
     return(
             <>
-        {conversationlist.map(each => (
+        {conversationlist.map((each,index) => (
                                 
-                                 <ConversationListConverstaioncard key={each.username}>
-                                        <ConversationListUserProfile src="https://i.pravatar.cc/150?img=12" alt="profile" />
+                     <ConversationListConverstaioncard key={each.index}>
+                            <ConversationListUserProfile src="https://i.pravatar.cc/150?img=12" alt="profile" />
                                     <ConversationListDetails>
-                                <ConversationListUserInfoCard>
-                                <ConversationListUserName>
-                                    {each.username}
-                                </ConversationListUserName>
-                                <ConversationListUserNameMessage>
-                                    {each.message}
-                                </ConversationListUserNameMessage>
-                            </ConversationListUserInfoCard>
-                            <ConversationListTimeCount>
-                                <ConversationListSentTime>
-                                    {each.time}
-                                </ConversationListSentTime>
-                                {each.noofcounts > 0 && <ConversationListUnreadCount>
-                                    {each.noofcounts}
-                                </ConversationListUnreadCount>}
-                            </ConversationListTimeCount>
+                                    <ConversationListUserInfoCard>
+                                        <ConversationListUserName>
+                                            {each.username}
+                                        </ConversationListUserName>
+                                        <ConversationListUserNameMessage>
+                                            {each.message}
+                                        </ConversationListUserNameMessage>
+                                    </ConversationListUserInfoCard>
+                                    <ConversationListTimeCount>
+                                        <ConversationListSentTime>
+                                            {each.time}
+                                        </ConversationListSentTime>
+                                        {each.noofcounts > 0 && <ConversationListUnreadCount>
+                                            {each.noofcounts}
+                                        </ConversationListUnreadCount>}
+                                    </ConversationListTimeCount>
                             </ConversationListDetails>
                     </ConversationListConverstaioncard>
                                 

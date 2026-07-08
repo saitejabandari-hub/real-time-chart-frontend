@@ -1,16 +1,20 @@
+import { useContext } from 'react'
 import ConversationItem from '../ConversationItem'
+import ChatContext from '../../context/ChatContext'
+import Profile from '../Profile'
+import Setting from '../Setting'
 
 import {ConversationListContainer,ConversationListSearchCard,SearchIcon,ConversationListSerachInput,
-    ConversationListCategories,ConversationListCategory,ConversationListConverstaionSection,
+    ConversationListCategories,ConversationListCategory,ConversationListConverstaionBody,
 
  } from './styledcomponent'
 
 const ConversationList =()=>{
-
+    const {leftPanel}=useContext(ChatContext)
 
     return(
         <ConversationListContainer>
-            <ConversationListSearchCard>
+          {leftPanel === 'conversationlist' && <>  <ConversationListSearchCard>
                 <SearchIcon /> <ConversationListSerachInput placeholder='search'/>
             </ConversationListSearchCard>
 
@@ -25,13 +29,15 @@ const ConversationList =()=>{
                     Groups
                 </ConversationListCategory>
                 <ConversationListCategory>
-                    favorties
+                    favorites
                 </ConversationListCategory>
             </ConversationListCategories>
 
-            <ConversationListConverstaionSection>
+            <ConversationListConverstaionBody>
                 <ConversationItem/>
-            </ConversationListConverstaionSection>
+            </ConversationListConverstaionBody></>}
+          {leftPanel === "profile" && <Profile/>}
+          {leftPanel === 'setting' && <Setting/>}
             
         </ConversationListContainer>
     )

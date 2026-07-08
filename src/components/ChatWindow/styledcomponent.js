@@ -4,19 +4,22 @@ import styled from "styled-components";
 
 export const ChatWindowContainer = styled.div`
 width:100%;
-height:100vh;
+height:100%;
 border: 2px solid #2E303A ;
 border-left-width:0px;
 display:flex;
 flex-direction:column;
 `
 export const ChatWindowTextCard = styled.div`
-height:100%;
+display:flex;
+flex-direction:column;
+flex:1;
 background: #1F2028;
 padding:0px 10px;
+min-height:0;
 `
 export const ChatWindowTextarea = styled.div`
-height:580px;
+flex:1;
 overflow-Y:scroll;
 &::-webkit-scrollbar{
         width:6px;

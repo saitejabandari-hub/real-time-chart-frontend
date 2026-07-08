@@ -9,8 +9,8 @@ import { IoSettingsOutline } from "react-icons/io5";
 export const SidebarContainer = styled.div`
 background: #16171D;
 color: #ffffff;
+height:100%;
 width: 70px;
-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
@@ -88,7 +88,7 @@ z-index:100;
 gap:15px;
 
 `
-export const SidebarDropdownheading = styled.h2`
+export const SidebarDropdownbutton = styled.button`
 color: #ffffff;
 font-family:"Roboto";
 font-weight:500;

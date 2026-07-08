@@ -11,6 +11,7 @@ padding:10px;
 border-radius:15px;
 height:70px;
 background: #16171D;
+z-index:100;
 
 `
 export const ChatInputoptionCard = styled.div`

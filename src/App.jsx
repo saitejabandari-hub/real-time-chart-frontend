@@ -3,6 +3,7 @@
 import socket from "./services/socket";
 import {useState, useEffect,useRef } from "react";
 import Dashboard from './pages/Dashboard'
+import ChatContext from './context/ChatContext'
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
   const [isjoined, setIsjoined]=useState(false)
   const [typing,setTyping]=useState('')
   const [roomUsers, setRoomUsers] = useState([]);
+
+  const [leftPanel, setLeftPanel]=useState('setting')
 
   const typeTimeout =  useRef(null);
 
@@ -86,6 +89,7 @@ function App() {
     setTyping('')
 }
 
+
   const onEntered=()=>{
     if (username.trim() === "" || room.trim() === "") return;
 
@@ -114,41 +118,61 @@ function App() {
       })
     },2000)
 
-
+  
 
   }
 
+  const onSelectConvesationList = () =>{
+    setLeftPanel('conversationlist')
+
+  }
+
+  const onSelectProfile=()=>{
+    setLeftPanel('profile')
+  }
+
+  const onSelectSetting=()=>{
+    setLeftPanel("setting")
+  }
+
   return (
-    // <div>
-    //   {isjoined ? <>{messages.map((msg,index)=>(
+
+    <ChatContext.Provider value={{onSelectConvesationList,leftPanel,onSelectProfile,onSelectSetting}}>
+       {/* <div>
+       {isjoined ? <>{messages.map((msg,index)=>(
         
-    //    <div key={index} style={{textAlign:msg.username === username? "right":"left" ,backgroundColor:
-    // msg.username === username?"blue":"green",width:"150px" }} > 
+       <div key={index} style={{textAlign:msg.username === username? "right":"left" ,backgroundColor:
+    msg.username === username?"blue":"green",width:"150px" }} > 
 
-    //     <div key={index}>
-    //      <h3>{msg.username}</h3>
-    //     <p>{msg.text}</p>
-    //     <small>{msg.time}</small>
-    //       </div>
+        <div key={index}>
+         <h3>{msg.username}</h3>
+        <p>{msg.text}</p>
+        <small>{msg.time}</small>
+          </div>
 
-    //    </div>
+       </div>
 
-    //   ))}
-    //   {roomUsers.map(each => (
-    //     <p key={each.socketId} >{each.username}</p>
-    //   ))}
-    //   <input value={text}  onChange={ onTyping} placeholder={typing} />
-    //   <button onClick={sendMessage}>
-    //     Send
-    //   </button></>:<> <input value={username} placeholder="Enter username"  onChange={(e)=>setUsername(e.target.value)}/>
-    //   <input value={room} placeholder="Enter room"  onChange={(e)=>setRoom(e.target.value)}/>  
-    //   <button onClick={onEntered}>
-    //     OK
-    //   </button> </>}
-    // </div>
+      ))}
+      {roomUsers.map(each => (
+        <p key={each.socketId} >{each.username}</p>
+      ))}
+      <input value={text}  onChange={ onTyping} placeholder={typing} />
+      <button onClick={sendMessage}>
+        Send
+      </button></>:<> <input value={username} placeholder="Enter username"  onChange={(e)=>setUsername(e.target.value)}/>
+      <input value={room} placeholder="Enter room"  onChange={(e)=>setRoom(e.target.value)}/>  
+      <button onClick={onEntered}>
+        OK
+      </button> </>}
+    </div> */}
     <div>
       <Dashboard/>
     </div>
+    
+
+    </ChatContext.Provider>
+
+    
   )
 }
 

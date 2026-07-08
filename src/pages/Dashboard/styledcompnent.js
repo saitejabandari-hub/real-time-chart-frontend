@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const DashboardContainer = styled.div`
 display:flex;
-flex-direction:column;
-justify-content:center;
 background: #16171D;
+height:100vh;
 `
-export const DashboardInnerContainer = styled.div`
-display:flex;
-align-items:center;
-`
+// export const DashboardInnerContainer = styled.div`
+// display:flex;
+// height:100%;
+// `

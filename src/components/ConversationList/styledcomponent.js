@@ -59,7 +59,7 @@ background: #212121;
 padding:10px;
 border-radius:10px;
 `
-export const ConversationListConverstaionSection = styled.ul`
+export const ConversationListConverstaionBody = styled.ul`
 display:flex;
 flex-direction: column;
 gap:10px;

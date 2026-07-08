@@ -2,7 +2,7 @@ import Sidebar from '../../components/Sidebar'
 import ConversationList from '../../components/ConversationList'
 import ChatWindow from '../../components/ChatWindow'
 
-import {DashboardContainer, DashboardInnerContainer } from './styledcompnent'
+import {DashboardContainer } from './styledcompnent'
 
 const Dashboard =()=>{
 
@@ -10,11 +10,11 @@ const Dashboard =()=>{
        
        
         <DashboardContainer>
-            < DashboardInnerContainer >
+            
              <Sidebar/>
             <ConversationList/>
             <ChatWindow/>
-            </DashboardInnerContainer>
+           
             
         </DashboardContainer>
     )
