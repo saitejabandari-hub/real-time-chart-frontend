@@ -11,7 +11,6 @@ import { FcAbout } from "react-icons/fc";
 export const SettingContainer = styled.div`
 display:flex;
 flex-direction:column;
-align-items:center;
 
 `
 export const SettingNamecard = styled.h1`
@@ -28,7 +27,7 @@ justify-content:space-between;
 align-items:center;
 padding:10px;
 border-radius:10px;
-width:90%;
+width:100%;
 cursor:pointer;
 transtion: 0.2s ease;
 &:hover{

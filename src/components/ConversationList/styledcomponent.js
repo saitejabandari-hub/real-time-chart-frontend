@@ -5,11 +5,12 @@ import { IoIosSearch } from "react-icons/io";
 export const ConversationListContainer = styled.div`
 border: 2px solid #2E303A ;
 height:100vh;
-width:400px;
+min-width:320px;
 border-top-left-radius:20px;
 display:flex;
 flex-direction:column;
 padding:10px 10px;
+flex:1;
 `
 export const ConversationListFirstcard = styled.div`
 display:flex;
@@ -60,7 +61,7 @@ outline:none;
 cursor:pointer;
 font-family:"Roboto";
 font-size:14px;
-font-weihgt:600;
+font-weight:600;
 color: #ffffff;
 background: #212121;
 padding:10px;
@@ -69,6 +70,7 @@ border-radius:10px;
 export const ConversationListConverstaionBody = styled.ul`
 display:flex;
 flex-direction: column;
+height:640px;
 gap:10px;
 list-style-type:none;
 overflow-Y:scroll;
