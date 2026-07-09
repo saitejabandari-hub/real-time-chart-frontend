@@ -5,12 +5,18 @@ import { IoIosSearch } from "react-icons/io";
 export const ConversationListContainer = styled.div`
 border: 2px solid #2E303A ;
 height:100vh;
-width:350px;
+width:400px;
 border-top-left-radius:20px;
 display:flex;
 flex-direction:column;
 padding:10px 10px;
 `
+export const ConversationListFirstcard = styled.div`
+display:flex;
+flex-direction:column;
+width:100%;
+`
+
 export const ConversationListSearchCard = styled.div`
 display:flex;
 align-items:center;
@@ -45,6 +51,7 @@ align-items:center;
 justify-content: space-between;
 gap:10px;
 padding:10px;
+
 `
 
 export const ConversationListCategory = styled.button`

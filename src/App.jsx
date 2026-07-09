@@ -127,6 +127,10 @@ function App() {
 
   }
 
+  const onSelectNotification=()=>{
+    setLeftPanel("notification")
+  }
+
   const onSelectProfile=()=>{
     setLeftPanel('profile')
   }
@@ -135,9 +139,33 @@ function App() {
     setLeftPanel("setting")
   }
 
+  const onSelectApperance=()=>{
+    setLeftPanel("apperance")
+  }
+      const onSelectPrivacy=()=>{
+    setLeftPanel("privacy")
+  }
+      const onSelectLanguage=()=>{
+    setLeftPanel("language")
+  }
+      const onSelectHelp=()=>{
+    setLeftPanel("help")
+  }
+
+      const onSelectAbout=()=>{
+    setLeftPanel("about")
+  }
+
+  const onSelectContact=()=>{
+    setLeftPanel("contact")
+  }
+  
+
   return (
 
-    <ChatContext.Provider value={{onSelectConvesationList,leftPanel,onSelectProfile,onSelectSetting}}>
+    <ChatContext.Provider value={{onSelectConvesationList,leftPanel,onSelectProfile,onSelectSetting,onSelectNotification,
+      onSelectApperance, onSelectPrivacy,onSelectLanguage,onSelectHelp,onSelectAbout,onSelectContact
+    }}>
        {/* <div>
        {isjoined ? <>{messages.map((msg,index)=>(
         

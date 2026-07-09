@@ -93,4 +93,7 @@ color: #ffffff;
 font-family:"Roboto";
 font-weight:500;
 font-size:18px;
+background: transparent;
+border-width: 0px;
+cursor:pointer;
 `

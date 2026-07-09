@@ -3,9 +3,11 @@ import ConversationItem from '../ConversationItem'
 import ChatContext from '../../context/ChatContext'
 import Profile from '../Profile'
 import Setting from '../Setting'
+import Notification from '../Notification'
+import Contact from "../Contact"
 
 import {ConversationListContainer,ConversationListSearchCard,SearchIcon,ConversationListSerachInput,
-    ConversationListCategories,ConversationListCategory,ConversationListConverstaionBody,
+    ConversationListCategories,ConversationListCategory,ConversationListConverstaionBody,ConversationListFirstcard
 
  } from './styledcomponent'
 
@@ -14,7 +16,7 @@ const ConversationList =()=>{
 
     return(
         <ConversationListContainer>
-          {leftPanel === 'conversationlist' && <>  <ConversationListSearchCard>
+          {leftPanel === 'conversationlist' ? <>  <ConversationListFirstcard><ConversationListSearchCard>
                 <SearchIcon /> <ConversationListSerachInput placeholder='search'/>
             </ConversationListSearchCard>
 
@@ -35,9 +37,17 @@ const ConversationList =()=>{
 
             <ConversationListConverstaionBody>
                 <ConversationItem/>
-            </ConversationListConverstaionBody></>}
-          {leftPanel === "profile" && <Profile/>}
-          {leftPanel === 'setting' && <Setting/>}
+            </ConversationListConverstaionBody></ConversationListFirstcard></>:
+            leftPanel === "profile" ? <Profile/>: 
+             leftPanel === 'setting' ? <Setting/>:
+             leftPanel === "notification" ? < Notification/>:
+             leftPanel === "privacy" ? < Notification/>:
+             leftPanel === "apperance" ? < Notification/>:
+             leftPanel === "language" ? < Notification/>:
+             leftPanel === "help" ? < Notification/>:
+             leftPanel === "about" ? < Notification/>:
+                <Contact/>
+            }
             
         </ConversationListContainer>
     )

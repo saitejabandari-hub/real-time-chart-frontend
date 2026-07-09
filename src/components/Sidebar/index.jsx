@@ -7,7 +7,7 @@ SidebarDropdownbutton,} from './styledcomponent'
 
 const Sidebar=()=>{
     const [isProfileOpen,setIsProfileOpen]=useState(false)
-    const {onSelectProfile,onSelectConvesationList,onSelectSetting}=useContext(ChatContext)
+    const {onSelectProfile,onSelectConvesationList,onSelectSetting,onSelectContact}=useContext(ChatContext)
     const profileUseRef = useRef()
 
     useEffect(()=>{
@@ -56,7 +56,7 @@ const Sidebar=()=>{
 
         <SidebarIcons>
             <ChatIcon onClick={onSelectConvesationList}/>
-             <ContactIcon/>
+             <ContactIcon onClick={onSelectContact}/>
              <StarIcon/>
               <NotificationIcon/>
                

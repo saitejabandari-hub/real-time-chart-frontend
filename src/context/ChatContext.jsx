@@ -7,8 +7,14 @@ const ChatContext = createContext({
     onSelectConvesationList:()=>{},
     onSelectProfile:()=>{},
     onSelectSetting:()=>{},
+    onSelectNotification:()=>{},
+    onSelectApperance:()=>{},
+    onSelectPrivacy:()=>{},
+    onSelectLanguage:()=>{},
+    onSelectHelp:()=>{},
+    onSelectAbout:()=>{},
+    onSelectContact:()=>{},
     
-
 
 })
 
